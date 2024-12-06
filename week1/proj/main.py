@@ -23,5 +23,8 @@ if __name__ == "__main__":
     # model: LlmModel = MODELS["ollama"](SYS_PROMPT, USER_PROMPT_TEMPLATE)
     # print(model.respond_to(CODE_SNIPPETS[-1]))
 
-    model: LlmModel = MODELS["openai"](SYS_PROMPT, USER_PROMPT_TEMPLATE)
+    model: LlmModel = MODELS["ollama"](SYS_PROMPT, USER_PROMPT_TEMPLATE, "mistral")
     print(model.respond_to(CODE_SNIPPETS[-1]))
+
+    # model: LlmModel = MODELS["openai"](SYS_PROMPT, USER_PROMPT_TEMPLATE)
+    # print(model.respond_to(CODE_SNIPPETS[-1]))

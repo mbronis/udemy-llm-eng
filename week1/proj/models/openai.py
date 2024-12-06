@@ -16,7 +16,7 @@ class OpenAiModel(LlmModel):
     ):
         super().__init__(system_prompt, user_prompt_template, model)
         load_dotenv()
-        api_key = os.getenv("OPENAI_API_KEY")
+        _ = os.getenv("OPENAI_API_KEY")
         self.chat = OpenAI()
 
     def _call_model(self, message: list):
