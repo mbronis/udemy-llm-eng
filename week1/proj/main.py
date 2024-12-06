@@ -1,4 +1,4 @@
-from models import MODELS, LlmModel
+import models as m
 
 
 SYS_PROMPT = """
@@ -20,11 +20,11 @@ CODE_SNIPPETS = [
 ]
 
 if __name__ == "__main__":
-    # model: LlmModel = MODELS["ollama"](SYS_PROMPT, USER_PROMPT_TEMPLATE)
-    # print(model.respond_to(CODE_SNIPPETS[-1]))
-
-    model: LlmModel = MODELS["ollama"](SYS_PROMPT, USER_PROMPT_TEMPLATE, "mistral")
+    model = m.OllamaModel(SYS_PROMPT, USER_PROMPT_TEMPLATE)
     print(model.respond_to(CODE_SNIPPETS[-1]))
 
-    # model: LlmModel = MODELS["openai"](SYS_PROMPT, USER_PROMPT_TEMPLATE)
-    # print(model.respond_to(CODE_SNIPPETS[-1]))
+    model = m.OllamaModel(SYS_PROMPT, USER_PROMPT_TEMPLATE, model="mistral")
+    print(model.respond_to(CODE_SNIPPETS[-1]))
+
+    model = m.OpenAiModel(SYS_PROMPT, USER_PROMPT_TEMPLATE)
+    print(model.respond_to(CODE_SNIPPETS[0]))
